@@ -1,0 +1,160 @@
+#app {
+  display: grid;
+  grid-template-columns: 120px 3fr 1.2fr;
+  /* Cart | Product List | Nav */
+  grid-template-rows: auto;
+  grid-template-areas:
+    'pos-menu pos-header  pos-cart'
+    'pos-menu pos-product-list pos-cart'
+    'pos-menu pos-product-list pos-cart';
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+}
+
+
+@media (max-width: 1024px) {
+  #app {
+    grid-template-columns: 120px 3fr 2fr !important;
+  }
+}
+
+
+.pos-menu {
+  grid-area: pos-menu;
+  background-color: #202020 !important;
+  color: #fff;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  max-width: 120px;
+  height: 100%;
+  z-index: 100;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.notyf__wrapper {
+  padding-right: 5px !important;
+}
+
+.pos-header {
+  grid-area: pos-header;
+  background-color: #e0e0e0;
+  text-align: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  padding: 1rem 0.5rem !important;
+}
+
+.disabled {
+  pointer-events: none !important;
+}
+
+.pos-product-list {
+  grid-area: pos-product-list;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  scroll-behavior: smooth;
+  margin-bottom: 2rem;
+  overflow-y: scroll;
+}
+
+.pos-product-list>.card {
+  padding: 0 .25rem 0.75rem .35rem !important;
+  overflow: auto;
+}
+
+.product-list-container {
+  position: relative;
+  overflow: scroll;
+  padding-top: 10px;
+  height: 100%;
+
+}
+
+.pos-product-list table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+
+.pos-cart {
+  grid-area: pos-cart;
+  background-color: #f5f5f5;
+  z-index: 99;
+  height: 100%;
+  max-width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.pos-footer {
+  grid-area: pos-footer;
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+}
+
+.pos-menu {
+  --mdb-nav-link-padding-x: 0 !important;
+}
+
+.pos-menu-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: stretch;
+  place-items: space-evenly;
+  margin: 0.15rem auto;
+  padding: .75rem 0;
+
+  &:hover {
+    background-color: #495057;
+  }
+
+  &.active {
+    background-color: #495057;
+  }
+}
+
+.pos-menu-item a.nav-link {
+  color: #fff;
+  text-decoration: none;
+  transition: background-color.3s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  text-transform: uppercase;
+  font-size: 10pt;
+}
+
+.price::before {
+  content: '¢';
+}
+
+html,
+body,
+#app.auth {
+  background: linear-gradient(to right, #000818, #000000);
+  scroll-behavior: smooth;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
