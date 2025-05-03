@@ -25,7 +25,7 @@ const fetchData = () => {
 const productsStore = useProductsStore();
 
 // Use computed properties to access data from the store.
-const productListComputed = computed(() => productsStore.items);
+const productListComputed = computed(() => productsStore.productsCount);
 const outOfStockProducts = computed(() => productsStore.outOfStockProducts); // Assuming these getters exist
 const InStockProducts = computed(() => productsStore.inStockProducts);     // Assuming these getters exist
 const lowStockProducts = computed(() => productsStore.lowStockProducts);
@@ -75,7 +75,7 @@ onMounted(() => {
                 </div>
                 <div class="col-sm-9">
                   <h5 class="card-title text-uppercase">all items </h5>
-                  <p class="card-text fs-5 fw-semibold">{{ productListComputed?.length }}
+                  <p class="card-text fs-5 fw-semibold">{{ productListComputed }}
                     (<span class="price">{{ formatCurrency(allProductsAmount) }}</span>)
                   </p>
                 </div>
